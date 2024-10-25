@@ -1,5 +1,5 @@
 [package]
-name = "esp32-c6-test"
+name = "esp32-c6-i2c-test"
 version = "0.1.0"
 authors = ["blinry <mail@blinry.org>"]
 edition = "2021"
@@ -12,7 +12,7 @@ esp-backtrace = { version = "0.14.2", features = [
     "panic-handler",
     "println",
 ] }
-esp-hal = { version = "0.21.0", features = [ "esp32c6" ] }
+esp-hal = { git = "https://github.com/esp-rs/esp-hal", features = ["esp32c6"] }
 esp-println = { version = "0.12.0", features = ["esp32c6", "log"] }
 log = { version = "0.4.22" }
 max17048 = "0.1.0"
@@ -22,7 +22,7 @@ max17048 = "0.1.0"
 opt-level = "s"
 
 [profile.release]
-codegen-units = 1 # LLVM can perform better optimizations using a single thread
+codegen-units = 1        # LLVM can perform better optimizations using a single thread
 debug = 2
 debug-assertions = false
 incremental = false
